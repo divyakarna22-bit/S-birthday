@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+.card {
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(14px);
+  border-radius: 24px;
+  padding: 36px 28px;
+  max-width: 480px;
+  box-shadow: 0 0 40px rgba(255,182,193,0.6);
+  animation: fadeIn 2s ease;
+  z-index: 2;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 6px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+
+.heart {
+  font-size: 3rem;
+  animation: pulse 1.5s infinite;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.typing {
+  font-style: italic;
+  margin: 12px 0;
+  min-height: 24px;
+}
+
+footer {
+  margin-top: 22px;
+  font-size: 0.95rem;
+}
+
+.note {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-top: 14px;
+}
+
+/* floating hearts background */
+.floating {
+  position: fixed;
+  bottom: -20px;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+  animation: floatUp linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  to { transform: translateY(-120vh); opacity: 0; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Romantic music (starts on first click) -->
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9e6c8c7c9b.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Floating hearts -->
+<div class="floating" style="left:10%; animation-duration: 14s;">❤️ I love you</div>
+<div class="floating" style="left:30%; animation-duration: 18s;">❤️ I love you</div>
+<div class="floating" style="left:50%; animation-duration: 16s;">❤️ I love you</div>
+<div class="floating" style="left:70%; animation-duration: 20s;">❤️ I love you</div>
+<div class="floating" style="left:85%; animation-duration: 15s;">❤️ I love you</div>
+
+<div class="card">
+  <div class="heart">❤️</div>
+  <h1>Happy Birthday, My Love</h1>
+  <h2>No distance can ever change us</h2>
+
+  <div class="typing" id="typing"></div>
+
+  <p>
+    Today is your birthday, and even though there are miles between us,
+    my heart refuses to feel the distance.
+    I wish I could be there to wake you up with kisses,
+    see your sleepy smile,
+    and remind you how deeply and endlessly you are loved.
+  </p>
+
+  <p>
+    You are my comfort on difficult days,
+    my calm when everything feels overwhelming,
+    and my happiest thought when I close my eyes.
+    Loving you from far away hasn’t been easy,
+    but choosing you every single day has always felt right.
+  </p>
+
+  <p>
+    Until the day I can celebrate every birthday right beside you,
+    keep my love close to your heart.
+    Somewhere in Nepal,
+    there is a girl whose prayers begin with you
+    and whose dreams always end with your name.
+    Happy Birthday, my baby.
+    I love you more than words will ever explain.
+  </p>
+
+  <footer>— Forever yours ❤️</footer>
+  <div class="note">(Scroll slowly… this page carries my heart 💕)</div>
+</div>
+
+<script>
+/* typing effect */
+const text = "I love you… today, tomorrow, and always 🤍";
+let i = 0;
+function typeText() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeText, 80);
+  }
+}
+typeText();
+
+/* start music on first click anywhere */
+let started = false;
+document.addEventListener("click", () => {
+  if (!started) {
+    document.getElementById("bgMusic").play();
+    started = true;
+  }
+});
+</script>
+
+</body>
+</html>
